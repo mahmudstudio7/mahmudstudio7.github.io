@@ -192,36 +192,23 @@
 
   /* ---- Character consistency showcase ---- */
   .consistency{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-  .frame-grid{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:2px;
-    background:var(--line);
+  .ref-sheet{
+    width:100%;
+    border-radius:2px;
+    display:block;
     border:1px solid var(--line);
-    margin-top:10px;
   }
-  .frame{
-    aspect-ratio:3/4;
-    background:var(--bg3);
-    position:relative;
-    display:flex;align-items:flex-end;
-    overflow:hidden;
-  }
-  .frame .tag{
-    font-family:'JetBrains Mono',monospace;
-    font-size:10px;
-    color:var(--slate);
-    padding:8px;
-    letter-spacing:1px;
-  }
-  .frame::before{
-    content:"";
-    position:absolute;inset:0;
-    background:linear-gradient(160deg, rgba(122,36,54,0.25), rgba(201,162,39,0.08));
-  }
-  @media(max-width:760px){
-    .frame-grid{grid-template-columns:repeat(2,1fr);}
-  }
+  .ref-pair{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:1px solid var(--line);margin-top:10px;}
+  @media(max-width:760px){.ref-pair{grid-template-columns:1fr;}}
+  .ref-pair .cell{background:var(--bg3);}
+  .ref-pair .cell .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:2px;padding:14px 16px 0;}
+  .ref-pair img{width:100%;display:block;}
+
+  .scene-compare{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line);border:1px solid var(--line);margin-top:60px;}
+  @media(max-width:760px){.scene-compare{grid-template-columns:1fr;}}
+  .scene-compare .cell{background:var(--bg3);}
+  .scene-compare .cell .lbl{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:2px;padding:14px 16px 6px;}
+  .scene-compare img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;}
   .consistency-note{
     margin-top:28px;
     font-family:'JetBrains Mono',monospace;
@@ -359,14 +346,29 @@
       <h2 class="display">Same face, every angle,<br>every scene.</h2>
       <p>Most AI video breaks character between shots. This is what a locked identity reference looks like across a full angle set — replace with your own generated frames.</p>
     </div>
-    <div class="frame-grid">
-      <div class="frame"><div class="tag mono">01 · NEUTRAL</div></div>
-      <div class="frame"><div class="tag mono">02 · SMILE</div></div>
-      <div class="frame"><div class="tag mono">03 · 3/4 LEFT</div></div>
-      <div class="frame"><div class="tag mono">04 · 3/4 RIGHT</div></div>
-      <div class="frame"><div class="tag mono">05 · PROFILE</div></div>
+    <div class="ref-pair">
+      <div class="cell">
+        <div class="lbl">HERO — REFERENCE SHEET</div>
+        <img src="assets/hero-neutral.png" alt="Hero character reference — five consistent angles">
+      </div>
+      <div class="cell">
+        <div class="lbl">HEROINE — REFERENCE SHEET</div>
+        <img src="assets/heroine-neutral.png" alt="Heroine character reference — five consistent angles">
+      </div>
     </div>
-    <div class="consistency-note mono">→ Character identity locked across 10+ reference angles before production begins</div>
+    <div class="consistency-note mono">→ Locked identity reference — five angles, same face, before a single scene is shot</div>
+
+    <div class="scene-compare">
+      <div class="cell">
+        <div class="lbl">HERO — SAME CHARACTER, IN SCENE</div>
+        <img src="assets/hero-scene.jpeg" alt="Hero character in a wedding scene, matching reference sheet">
+      </div>
+      <div class="cell">
+        <div class="lbl">HEROINE — SAME CHARACTER, IN SCENE</div>
+        <img src="assets/heroine-scene.jpeg" alt="Heroine character in a wedding scene, matching reference sheet">
+      </div>
+    </div>
+    <div class="consistency-note mono">→ Reference locked in pre-production — the same face carries through into the final generated scene</div>
   </section>
 
   <section class="work" id="work">
